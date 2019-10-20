@@ -46,13 +46,35 @@
       console.table(inventors.sort((a, b) => (a.passed - a.year) < (b.passed - b.year)))
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
       // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+      /*
+      run this in your console at the wiki page
+
+      const data = [...document.querySelectorAll('.mw-category-group a')];
+      console.log(data)
+      const de = data.map(street => {
+        street.textContent
+      }).filter(street => {
+        street.includes('de')
+      });
+      console.log(de)
+
+      */
 
       // 7. sort Exercise
       // Sort the people alphabetically by last name
-
-      // 8. Reduce Exercise use the const data
+      console.table(people.sort((a, b) => a > b))
+      // 8. Reduce Exercise
       // Sum up the instances of each of these
       const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+      const count = data.reduce((obj, data) => {
+        if(!obj[data]) {
+          obj[data] = 0
+        }
+        obj[data]++
+        return obj
+      }, {})
+      console.table(count)
     </script>
   </body>
 </html>
